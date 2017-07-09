@@ -1,0 +1,48 @@
+## 程序名称：
+
+Scanlogin_xls.py
+
+## 功能：
+
+通过微博网页版手机客户端，扫描本程序运行时生成的二维码图片，获得当前用户的所有粉丝信息
+
+## 运行环境：
+
+1. Python2.7
+2. +Python库:cookielib、requests、tablib
+
+## 操作步骤：
+
+1.配置好python2.7运行环境，并确认已有外部库cookielib、requests、tablib。没有这三种外部库的话，需要通过包管理工具，例如pip，进行添加。
+2.运行Scanlogin_xls.py。会在当前目录下生成一个一张二维码图片，不要关闭程序进程,程序仍在运行之中。（在此过程中会可能会抛出一个异常如下，此异常不影响程序功能）
+```
+Exception in thread open:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+    self.run()
+  File "/usr/lib/python2.7/threading.py", line 763, in run
+    self.__target(*self.__args, **self.__kwargs)
+  File "/home/chengs/桌面/ScanAndLogin/ScanLogin_xls.py", line 44, in open_img
+    im.close()
+  File "/usr/lib/python2.7/dist-packages/PIL/Image.py", line 528, in __getattr__
+    raise AttributeError(name)
+AttributeError: close
+```
+3.使用微博手机客户端，长按“微博栏”右上角，会出现扫一扫选项，选择进入然后扫描上一步生成的二维码。
+4.此时原程序的进程应该会输出“---成功扫描，请在手机点击确认以登录---”,此时客户端点击"确认登录"按钮。
+5.此时原程序的进程应该会输出“---登录成功---”表示登录成功。开始采集过程中会不断出现下列字样，请耐心等待！
+	```
+
+	已采集19
+	已采集20
+	已采集20
+	...
+	...
+	共采集到n个粉丝信息。收集信息完毕，顺利退出！
+
+	```
+6.信息采集完毕。当前目录下的“粉丝信息收集.xls”即为获得的信息。
+
+--------------END---------------------
+
+
