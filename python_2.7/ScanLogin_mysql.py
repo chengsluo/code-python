@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 '''
 在python2.7中测试通过
@@ -49,7 +49,7 @@ def login():
     """
     image_name, qrcode_qrid = get_qrcode()
     try:
-        # TODO(@fangc):用此方法打开图片不会退出，可以直接命令行用open打开，粗暴简单.
+        # 用此方法打开图片不会退出，可以直接命令行用open打开，粗暴简单.
         thread = threading.Thread(target=open_img, name="open", args=(image_name,))
         thread.start()
         print(u"请用手机微博扫描二维码"
